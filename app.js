@@ -1,29 +1,21 @@
-    
-    var spot = function getId(spot) { spot.id };
-    
-    let game = false;
-    let turn = 0;
+var oriBoard;
+const huPlayer = 'o';
+const aiPlayer = 'x'
+const winCombos = [
+    [0,1,2],
+    [3,4,5],
+    [6,7,8],
+    [0,3,6],
+    [1,4,7],
+    [2,5,8],
+    [0,4,8],
+    [6,4,2]
+];
 
-    const player_name1 = document.getElementById('firstplayer');
-    const player_name2 = document.getElementById('secondplayer');
+const cells = document.querySelectorAll('.cell');
+startGame();
 
-    function Player(name, marker) {
-        this.name = name
-        this.marker = marker
-    }
-    
-    const player1 = new Player(player_name1, 'x')
-    const player2 = new Player(player_name2, 'o')
-
-    const newGame = () => { game = true };
-    
-    while(game) {
-        if (turn % 2 == 0) {
-            document.getElementById(spot).innerHTML = 'x' 
-        } else {
-            document.getElementById(spot).innerHTML = 'o' 
-        }
-
-        if(turn > 3) {game = false};
-        turn += 1;
-    };
+function startGame() {
+    document.querySelectorAll(".endgame").style.display = "none";
+    origBoard = Array.from(Array(9).keys()) // create array 1 to 0
+}
