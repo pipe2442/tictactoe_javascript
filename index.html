@@ -8,30 +8,40 @@
     <title>Tic_Tac_Toe</title>
 </head>
 <body>
-    <h1>Hello world</h1>
+    <h1>Tic Tac Toe</h1>
     <button onclick="test()">Test</button>
     <div id="display"></div>
+
+    <input id="firstplayer" type="text" placeholder="First player name">
+    <input id="secondplayer" type="text" placeholder="Second player name">
+    <input type="button" value="Start" onclick="newGame()">
 
 
 
 
 <table>
     <tr>
-      <td>💁🏼</td>
-      <td>💁🏼</td>
-      <td>💁🏼</td>
+      <td id="0" onclick="getId(this)"></td>
+      <td id="1" onclick="getId(this)"></td>
+      <td id="2" onclick="getId(this)"></td>
     </tr>
     <tr>
-      <td>💁🏼</td>
-      <td>💁🏼</td>
-      <td>💁🏼</td>
+      <td id="3"></td>
+      <td id="4"></td>
+      <td id="5"></td>
     </tr>
     <tr>
-      <td>💁🏼</td>
-      <td>💁🏼</td>
-      <td>💁🏼</td>
+      <td id="6"></td>
+      <td id="7"></td>
+      <td id="8"></td>
     </tr>
   </table>
+
+  <div class="endgame">
+
+  </div>
+
+  <button onclick="startGame()">Replay</button>
   
   
 
