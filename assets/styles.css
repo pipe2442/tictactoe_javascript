@@ -1,37 +1,65 @@
+body {
+  background-color: #e2f9fd00;
+}
+
 table {
-    border-collapse: collapse;
-    margin: 0 auto;
-  }
-  table td {
-    padding: 1rem;
-    border: 5px solid black; 
-  }
-  table tr:first-child td {
-    border-top: 0;
-  }
-  table tr td:first-child {
-    border-left: 0;
-  }
-  table tr:last-child td {
-    border-bottom: 0;
-  }
-  table tr td:last-child {
-    border-right: 0;
-  }
+  visibility: hidden;
+  display: flex;
+  justify-content: center;
+  border-collapse: collapse;
+}
 
+td {
+  font-family: 'Reggae One', cursive;
+  font-size: 3rem;
+  color: #ff6e49;
+}
 
-.endgame {
-  display: none;
-  width: 200px;
-  top: 120px;
-  background-color: rgba(205,133,63, 0.8);
-  position: absolute;
-  left: 50%;
-  margin-left: -100px;
-  padding-top: 50px;
-  padding-bottom: 50px;
+table td {
+  padding: 3rem;
+  border: 5px solid #ffdd4e;
+}
+
+table tr:first-child td {
+  border-top: 0;
+}
+
+table tr td:first-child {
+  border-left: 0;
+}
+
+table tr:last-child td {
+  border-bottom: 0;
+}
+
+table tr td:last-child {
+  border-right: 0;
+}
+
+h1 {
+  font-weight: 400;
   text-align: center;
-  border-radius: 5px;
-  color: white;
-  font-size: 2em;
+  font-family: 'Reggae One', cursive;
+  font-size: 4rem;
+  color: #ff6e49;
+  text-shadow:
+    0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 21px #fff,
+    0 0 42px #0fa,
+    0 0 82px #0fa,
+    0 0 92px #0fa,
+    0 0 102px #0fa,
+    0 0 151px #0fa;
+}
+
+.startButton {
+  margin: 3rem 45%;
+  padding: 1% 3%;
+}
+
+.game {
+  background-color: #000019;
+  padding: 5rem;
+  border-radius: 5%;
 }

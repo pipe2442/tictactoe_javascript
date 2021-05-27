@@ -5,39 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Reggae+One&display=swap" rel="stylesheet"> 
     <title>Tic_Tac_Toe</title>
 </head>
 <body>
+
+  <div class="game">
+
     <h1>Tic Tac Toe</h1>
-
-
-<table>
-    <tr>
-      <td class="cell" id="0"></td>
-      <td class="cell" id="1"></td>
-      <td class="cell" id="2"></td>
-    </tr>
-    <tr>
-      <td class="cell" id="3"></td>
-      <td class="cell" id="4"></td>
-      <td class="cell" id="5"></td>
-    </tr>
-    <tr>
-      <td class="cell" id="6"></td>
-      <td class="cell" id="7"></td>
-      <td class="cell" id="8"></td>
-    </tr>
-  </table>
-
-  <div class="endgame">
-    <div class="text"></div>
+    <table id="game_table">
+      <tr>
+        <td class="cell" id="0"></td>
+        <td class="cell" id="1"></td>
+        <td class="cell" id="2"></td>
+      </tr>
+      <tr>
+        <td class="cell" id="3"></td>
+        <td class="cell" id="4"></td>
+        <td class="cell" id="5"></td>
+      </tr>
+      <tr>
+        <td class="cell" id="6"></td>
+        <td class="cell" id="7"></td>
+        <td class="cell" id="8"></td>
+      </tr>
+    </table>
+  
+    <button class="startButton" onclick="startGame()">Start</button>
+    
   </div>
 
-  <button onclick="startGame()">Replay</button>
-  
 
 
-    <script src="app.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
 
