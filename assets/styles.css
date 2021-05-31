@@ -1,6 +1,4 @@
-body {
-  background-color: #e2f9fd00;
-}
+
 
 table {
   visibility: hidden;
@@ -59,7 +57,7 @@ h1 {
 }
 
 .game {
-  background-color: #000019;
+ 
   padding: 5rem;
   border-radius: 5%;
 }
