@@ -1,10 +1,12 @@
 /* eslint-disable no-mixed-operators, no-use-before-define */
-let game = false;
+
 let turnNumber = 0;
 let board;
-const oPlayer = 'o';
-const xPlayer = 'x';
-const cells = document.querySelectorAll('.cell');
+
+function Player(name, marker) {
+  this.name = name;
+  this.marker = marker;
+}
 
 function turn(cell, player) {
   board[cell] = player;
@@ -37,21 +39,24 @@ function checkWinner(board) {
 }
 
 function gameLoop(e) {
-  game = true;
+  const player1 = new Player('pedro', 'O');
+  const player2 = new Player('juan', 'X');
+
+  const game = true;
   while (game) {
     if (turnNumber % 2 === 0) {
-      if (board[e.target.id] === oPlayer || board[e.target.id] === xPlayer) {
+      if (board[e.target.id] === player1.marker || board[e.target.id] === player2.marker) {
         document.getElementById('win').innerHTML = '<h1>That\'s not a valid move!!!</h1>';
         turnNumber -= 1;
       } else {
-        turn(e.target.id, oPlayer);
+        turn(e.target.id, player1.marker);
       }
     } else if (turnNumber % 2 !== 0) {
-      if (board[e.target.id] === oPlayer || board[e.target.id] === xPlayer) {
+      if (board[e.target.id] === player1.marker || board[e.target.id] === player2.marker) {
         document.getElementById('win').innerHTML = '<h1>That\'s not a valid move!!!</h1>';
         turnNumber -= 1;
       } else {
-        turn(e.target.id, xPlayer);
+        turn(e.target.id, player2.marker);
       }
     }
     turnNumber += 1;
@@ -61,6 +66,7 @@ function gameLoop(e) {
 }
 
 function startGame() {
+  const cells = document.querySelectorAll('.cell');
   document.getElementById('game_table').style.visibility = 'visible';
   board = [0, 1, 2, 3, 4, 5, 6, 7, 8];
   for (let i = 0; i < cells.length; i += 1) {
