@@ -18,24 +18,36 @@ function checkWinner(board) {
           || board[0] === board[3] && board[3] === board[6]
           || board[0] === board[4] && board[4] === board[8]) {
     document.getElementById('win').innerHTML = `<h1>${board[0]} is the winner!!!</h1>`;
-    startGame();
+    
   } else if (board[3] === board[4] && board[4] === board[5]) {
     document.getElementById('win').innerHTML = `<h1>${board[3]} is the winner!!!</h1>`;
-    startGame();
+    
   } else if (board[6] === board[7] && board[7] === board[8]) {
     document.getElementById('win').innerHTML = `<h1>${board[6]} is the winner!!!</h1>`;
-    startGame();
+    
   } else if (board[2] === board[5] && board[5] === board[8]
           || board[2] === board[4] && board[4] === board[6]) {
     document.getElementById('win').innerHTML = `<h1>${board[2]} is the winner!!!</h1>`;
-    startGame();
+    
   } else if (board[1] === board[4] && board[4] === board[7]) {
     document.getElementById('win').innerHTML = `<h1>${board[1]} is the winner!!!</h1>`;
-    startGame();
+    
   } else if (turnNumber === 9) {
     document.getElementById('win').innerHTML = '<h1>IT\'S A TIE!!!!</h1>';
-    startGame();
+    
   }
+}
+
+startGame = () => {
+  const cells = document.querySelectorAll('.cell');
+  document.getElementById('game_table').style.visibility = 'visible';
+  board = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+  for (let i = 0; i < cells.length; i += 1) {
+    cells[i].innerText = '';
+    cells[i].addEventListener('click', gameLoop);
+  }
+  turnNumber = 0;
+  document.getElementById('win').innerHTML = '';
 }
 
 function gameLoop(e) {
@@ -65,13 +77,4 @@ function gameLoop(e) {
   }
 }
 
-function startGame() {
-  const cells = document.querySelectorAll('.cell');
-  document.getElementById('game_table').style.visibility = 'visible';
-  board = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-  for (let i = 0; i < cells.length; i += 1) {
-    cells[i].innerText = '';
-    cells[i].addEventListener('click', gameLoop);
-  }
-  turnNumber = 0;
-}
+
