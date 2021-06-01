@@ -21,7 +21,7 @@ This project has been developed to accomplish basic javascript module at Microve
 
 ## Live Demo
 
-- [Hosted githack](https://rawcdn.githack.com/pipe2442/tictactoe_javascript/fb56cf29f680a29a0e765d3ebaccd0f212d61fa6/index.html)
+- [Hosted githack](https://rawcdn.githack.com/pipe2442/tictactoe_javascript/307d21cd5fde4daf601bc39a53e6568944726b9b/index.html)
 
 ## Getting Started
 
