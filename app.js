@@ -1,4 +1,4 @@
-/* eslint-disable no-mixed-operators, no-use-before-define, no-undef, no-restricted-globals */
+/* eslint-disable no-undef */
 
 function Player(name, marker) {
   this.name = name;
@@ -8,7 +8,7 @@ function Player(name, marker) {
 reload = () => {
   document.getElementById('name1').value = '';
   document.getElementById('name2').value = '';
-  location.reload();
+  window.location.reload();
 };
 
 validateForm = () => {
@@ -32,26 +32,30 @@ startGame = () => {
   const cells = document.querySelectorAll('.cell');
   document.getElementById('game_table').style.visibility = 'visible';
   document.getElementById('win').innerHTML = '';
+  let turnNumber = 0;
 
   checkWinner = (board, player1, player2) => {
     const a = player1.marker;
     const b = player2.marker;
-    if ((a === board[0].innerText || b === board[0].innerText)
-    && board[0].innerText === board[1].innerText && board[0].innerText === board[2].innerText
-    || (a === board[3].innerText || b === board[3].innerText)
-    && board[3].innerText === board[4].innerText && board[3].innerText === board[5].innerText
-    || (a === board[6].innerText || b === board[6].innerText)
-    && board[6].innerText === board[7].innerText && board[6].innerText === board[8].innerText
-    || (a === board[0].innerText || b === board[0].innerText)
-    && board[0].innerText === board[3].innerText && board[0].innerText === board[6].innerText
-    || (a === board[1].innerText || b === board[1].innerText)
-    && board[1].innerText === board[4].innerText && board[1].innerText === board[7].innerText
-    || (a === board[2].innerText || b === board[2].innerText)
-    && board[2].innerText === board[5].innerText && board[2].innerText === board[8].innerText
-    || (a === board[0].innerText || b === board[0].innerText)
-    && board[0].innerText === board[4].innerText && board[0].innerText === board[8].innerText
-    || (a === board[2].innerText || b === board[2].innerText)
-    && board[2].innerText === board[4].innerText && board[2].innerText === board[6].innerText) {
+
+    notEmpty = (spot, a, b) => {
+      if (a === board[spot].innerText || b === board[spot].innerText) {
+        return true;
+      }
+      return false;
+    };
+
+    checkWin = (a, b, c, p1, p2) => {
+      if (notEmpty(a, p1, p2) && board[a].innerText === board[b].innerText
+      && board[a].innerText === board[c].innerText) {
+        return true;
+      }
+      return false;
+    };
+
+    if (checkWin(0, 1, 2, a, b) || checkWin(3, 4, 5, a, b) || checkWin(6, 7, 8, a, b)
+    || checkWin(0, 3, 6, a, b) || checkWin(1, 4, 7, a, b) || checkWin(2, 5, 8, a, b)
+    || checkWin(0, 4, 8, a, b) || checkWin(2, 4, 6, a, b)) {
       if (turnNumber % 2 === 0) {
         document.getElementById('win').innerHTML = `<h1>${player2.name.value} wins</h1>`;
       } else {
@@ -72,7 +76,6 @@ startGame = () => {
     }
   };
 
-  let turnNumber = 0;
   marker = (e) => {
     if (turnNumber % 2 === 0) {
       turn(cells[e.target.id], player2, player1);
