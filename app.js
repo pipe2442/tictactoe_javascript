@@ -5,14 +5,6 @@ function Player(name, marker) {
   this.marker = marker;
 }
 
-checkWinner = (board) => {
-  console.log('winner');
-};
-
-validMove = () => {
-  console.log('validMove');
-};
-
 reload = () => {
   name1.value = '';
   name2.value = '';
@@ -22,15 +14,24 @@ reload = () => {
 startGame = () => {
   document.getElementById('name1').style.visibility = 'hidden';
   document.getElementById('name2').style.visibility = 'hidden';
-  const player1 = new Player(document.getElementById('name1'), 'O');
-  const player2 = new Player(document.getElementById('name2'), 'X');
+  const player1 = new Player(document.getElementById('name1'), 'X');
+  const player2 = new Player(document.getElementById('name2'), 'O');
   const cells = document.querySelectorAll('.cell');
   document.getElementById('game_table').style.visibility = 'visible';
   document.getElementById('win').innerHTML = '';
 
+  checkWinner = (board) => {
+    console.log('winner');
+  };
+
   turn = (cell, player, next) => {
-    document.getElementById('win').innerHTML = `<h1>It's ${next.name.value} turn</h1>`;
-    cell.innerText = player.marker;
+    if (cell.innerText === player.marker || cell.innerText === next.marker) {
+      document.getElementById('win').innerHTML = '<h1>Thats not a valid move</h1>';
+      turnNumber -= 1;
+    } else {
+      document.getElementById('win').innerHTML = `<h1>It's ${next.name.value} turn</h1>`;
+      cell.innerText = player.marker;
+    }
   };
 
   let turnNumber = 0;
@@ -42,13 +43,11 @@ startGame = () => {
     }
     turnNumber += 1;
     console.log(turnNumber);
-    if (cells[1].innerText === cells[2].innerText) {
-      alert('SE CUMPLIO!');
-    }
   };
 
   for (let i = 0; i < cells.length; i += 1) {
     cells[i].innerText = '';
     cells[i].addEventListener('click', marker);
   }
+  document.getElementById('win').innerHTML = `<h1>It's ${player2.name.value} turn</h1>`;
 };
