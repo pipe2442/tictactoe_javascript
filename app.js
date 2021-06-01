@@ -1,4 +1,4 @@
-/* eslint-disable no-mixed-operators, no-use-before-define */
+/* eslint-disable no-mixed-operators, no-use-before-define, no-undef, no-restricted-globals */
 
 function Player(name, marker) {
   this.name = name;
@@ -25,14 +25,22 @@ startGame = () => {
   checkWinner = (board, player1, player2) => {
     const a = player1.marker;
     const b = player2.marker;
-    if ((a === board[0].innerText || b === board[0].innerText) && board[0].innerText === board[1].innerText && board[0].innerText === board[2].innerText
-    || (a === board[3].innerText || b === board[3].innerText) && board[3].innerText === board[4].innerText && board[3].innerText === board[5].innerText
-    || (a === board[6].innerText || b === board[6].innerText) && board[6].innerText === board[7].innerText && board[6].innerText === board[8].innerText
-    || (a === board[0].innerText || b === board[0].innerText) && board[0].innerText === board[3].innerText && board[0].innerText === board[6].innerText
-    || (a === board[1].innerText || b === board[1].innerText) && board[1].innerText === board[4].innerText && board[1].innerText === board[7].innerText
-    || (a === board[2].innerText || b === board[2].innerText) && board[2].innerText === board[5].innerText && board[2].innerText === board[8].innerText
-    || (a === board[0].innerText || b === board[0].innerText) && board[0].innerText === board[4].innerText && board[0].innerText === board[8].innerText
-    || (a === board[2].innerText || b === board[2].innerText) && board[2].innerText === board[4].innerText && board[2].innerText === board[6].innerText) {
+    if ((a === board[0].innerText || b === board[0].innerText)
+    && board[0].innerText === board[1].innerText && board[0].innerText === board[2].innerText
+    || (a === board[3].innerText || b === board[3].innerText)
+    && board[3].innerText === board[4].innerText && board[3].innerText === board[5].innerText
+    || (a === board[6].innerText || b === board[6].innerText)
+    && board[6].innerText === board[7].innerText && board[6].innerText === board[8].innerText
+    || (a === board[0].innerText || b === board[0].innerText)
+    && board[0].innerText === board[3].innerText && board[0].innerText === board[6].innerText
+    || (a === board[1].innerText || b === board[1].innerText)
+    && board[1].innerText === board[4].innerText && board[1].innerText === board[7].innerText
+    || (a === board[2].innerText || b === board[2].innerText)
+    && board[2].innerText === board[5].innerText && board[2].innerText === board[8].innerText
+    || (a === board[0].innerText || b === board[0].innerText)
+    && board[0].innerText === board[4].innerText && board[0].innerText === board[8].innerText
+    || (a === board[2].innerText || b === board[2].innerText)
+    && board[2].innerText === board[4].innerText && board[2].innerText === board[6].innerText) {
       if (turnNumber % 2 === 0) {
         document.getElementById('win').innerHTML = `<h1>${player2.name.value} wins</h1>`;
       } else if (turnNumber % 2 !== 0) {
@@ -62,7 +70,6 @@ startGame = () => {
     }
     checkWinner(cells, player1, player2);
     turnNumber += 1;
-    console.log(turnNumber);
   };
 
   for (let i = 0; i < cells.length; i += 1) {

@@ -1,5 +1,4 @@
 
-
 table {
   visibility: hidden;
   display: flex;
@@ -55,6 +54,7 @@ h1 {
   margin: 2rem 45% 10rem 45%;
   padding: 1% 3%;
 }
+
 .replay {
   visibility: hidden;
   margin: 0 45%;
