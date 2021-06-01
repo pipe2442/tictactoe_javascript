@@ -11,11 +11,22 @@ reload = () => {
   location.reload();
 };
 
+validateForm = () => {
+  const a = document.getElementById('name1');
+  const b = document.getElementById('name2');
+  if (a.value === '' || b.value === '') {
+    document.getElementById('validate').innerHTML = '<h1>Player names can not be blank</h1>';
+    startGame.preventDefault();
+  }
+};
+
 startGame = () => {
+  validateForm();
   document.getElementById('name1').style.visibility = 'hidden';
   document.getElementById('name2').style.visibility = 'hidden';
   document.getElementById('start').style.visibility = 'hidden';
   document.getElementById('replay').style.visibility = 'visible';
+  document.getElementById('validate').innerHTML = '';
   const player1 = new Player(document.getElementById('name1'), 'X');
   const player2 = new Player(document.getElementById('name2'), 'O');
   const cells = document.querySelectorAll('.cell');
