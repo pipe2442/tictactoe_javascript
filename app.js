@@ -6,8 +6,8 @@ function Player(name, marker) {
 }
 
 reload = () => {
-  name1.value = '';
-  name2.value = '';
+  document.getElementById('name1').value = '';
+  document.getElementById('name2').value = '';
   location.reload();
 };
 
