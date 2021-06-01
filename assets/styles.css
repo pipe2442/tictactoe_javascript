@@ -57,7 +57,11 @@ h1 {
 }
 
 .game {
- 
   padding: 5rem;
   border-radius: 5%;
+}
+
+.names {
+  display: flex;
+  justify-content: center;
 }
