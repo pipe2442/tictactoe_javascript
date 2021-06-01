@@ -43,7 +43,7 @@ startGame = () => {
     && board[2].innerText === board[4].innerText && board[2].innerText === board[6].innerText) {
       if (turnNumber % 2 === 0) {
         document.getElementById('win').innerHTML = `<h1>${player2.name.value} wins</h1>`;
-      } else if (turnNumber % 2 !== 0) {
+      } else {
         document.getElementById('win').innerHTML = `<h1>${player1.name.value} wins</h1>`;
       }
       document.getElementById('game_table').style.visibility = 'hidden';
@@ -65,7 +65,7 @@ startGame = () => {
   marker = (e) => {
     if (turnNumber % 2 === 0) {
       turn(cells[e.target.id], player2, player1);
-    } else if (turnNumber % 2 !== 0) {
+    } else {
       turn(cells[e.target.id], player1, player2);
     }
     checkWinner(cells, player1, player2);
