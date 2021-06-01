@@ -52,7 +52,12 @@ h1 {
 }
 
 .startButton {
-  margin: 3rem 45%;
+  margin: 2rem 45% 10rem 45%;
+  padding: 1% 3%;
+}
+.replay {
+  visibility: hidden;
+  margin: 0 45%;
   padding: 1% 3%;
 }
 
@@ -62,6 +67,7 @@ h1 {
 }
 
 .names {
+  margin-top: -15rem;
   display: flex;
   justify-content: center;
 }

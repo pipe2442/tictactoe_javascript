@@ -14,14 +14,33 @@ reload = () => {
 startGame = () => {
   document.getElementById('name1').style.visibility = 'hidden';
   document.getElementById('name2').style.visibility = 'hidden';
+  document.getElementById('start').style.visibility = 'hidden';
+  document.getElementById('replay').style.visibility = 'visible';
   const player1 = new Player(document.getElementById('name1'), 'X');
   const player2 = new Player(document.getElementById('name2'), 'O');
   const cells = document.querySelectorAll('.cell');
   document.getElementById('game_table').style.visibility = 'visible';
   document.getElementById('win').innerHTML = '';
 
-  checkWinner = (board) => {
-    console.log('winner');
+  checkWinner = (board, player1, player2) => {
+    const a = player1.marker;
+    const b = player2.marker;
+    if ((a === board[0].innerText || b === board[0].innerText) && board[0].innerText === board[1].innerText && board[0].innerText === board[2].innerText
+    || (a === board[3].innerText || b === board[3].innerText) && board[3].innerText === board[4].innerText && board[3].innerText === board[5].innerText
+    || (a === board[6].innerText || b === board[6].innerText) && board[6].innerText === board[7].innerText && board[6].innerText === board[8].innerText
+    || (a === board[0].innerText || b === board[0].innerText) && board[0].innerText === board[3].innerText && board[0].innerText === board[6].innerText
+    || (a === board[1].innerText || b === board[1].innerText) && board[1].innerText === board[4].innerText && board[1].innerText === board[7].innerText
+    || (a === board[2].innerText || b === board[2].innerText) && board[2].innerText === board[5].innerText && board[2].innerText === board[8].innerText
+    || (a === board[0].innerText || b === board[0].innerText) && board[0].innerText === board[4].innerText && board[0].innerText === board[8].innerText
+    || (a === board[2].innerText || b === board[2].innerText) && board[2].innerText === board[4].innerText && board[2].innerText === board[6].innerText) {
+      if (turnNumber % 2 === 0) {
+        document.getElementById('win').innerHTML = `<h1>${player2.name.value} wins</h1>`;
+      } else if (turnNumber % 2 !== 0) {
+        document.getElementById('win').innerHTML = `<h1>${player1.name.value} wins</h1>`;
+      }
+      document.getElementById('game_table').style.visibility = 'hidden';
+      document.getElementById('win').style.margin = '-30rem 0 0 0';
+    }
   };
 
   turn = (cell, player, next) => {
@@ -41,6 +60,7 @@ startGame = () => {
     } else if (turnNumber % 2 !== 0) {
       turn(cells[e.target.id], player1, player2);
     }
+    checkWinner(cells, player1, player2);
     turnNumber += 1;
     console.log(turnNumber);
   };
