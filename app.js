@@ -70,6 +70,11 @@ startGame = () => {
     }
     checkWinner(cells, player1, player2);
     turnNumber += 1;
+    if (turnNumber > 8) {
+      document.getElementById('win').innerHTML = '<h1>It\'s a tie!!!</h1>';
+      document.getElementById('game_table').style.visibility = 'hidden';
+      document.getElementById('win').style.margin = '-30rem 0 0 0';
+    }
   };
 
   for (let i = 0; i < cells.length; i += 1) {
