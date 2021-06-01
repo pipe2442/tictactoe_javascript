@@ -69,5 +69,11 @@ h1 {
 .names {
   margin-top: -15rem;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+}
+
+.nameInput {
+  margin: 10px 15rem;
+  text-align: center;
 }
