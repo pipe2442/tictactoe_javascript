@@ -5,10 +5,6 @@ function Player(name, marker) {
   this.marker = marker;
 }
 
-const sum = (a , b) => {
-  return a + b;
-}
-
 reload = () => {
   document.getElementById('name1').value = '';
   document.getElementById('name2').value = '';
@@ -106,5 +102,4 @@ startGame = () => {
   document.getElementById('win').innerHTML = `<h1>It's ${player2.name.value} turn</h1>`;
 };
 
-
-module.exports = sum;
+module.exports = { Player, startGame, reload, validateForm, hiddeTable, startGame }
