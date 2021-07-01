@@ -22,7 +22,7 @@ validateForm = () => {
 
 const hiddeTable = () => {
   document.getElementById('game_table').style.visibility = 'hidden';
-}
+};
 
 startGame = () => {
   validateForm();
@@ -102,4 +102,6 @@ startGame = () => {
   document.getElementById('win').innerHTML = `<h1>It's ${player2.name.value} turn</h1>`;
 };
 
-module.exports = { Player, startGame, reload, validateForm, hiddeTable, startGame }
+module.exports = {
+  Player, startGame, reload, validateForm, hiddeTable,
+};
