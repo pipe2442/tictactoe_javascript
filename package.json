@@ -1,0 +1,28 @@
+{
+  "name": "tictactoe_javascript",
+  "version": "1.0.0",
+  "description": "![Hireable](https://cdn.rawgit.com/hiendv/hireable/master/styles/default/yes.svg)",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest",
+    "dev": "webpack --mode development",
+    "watch": "webpack --mode development --watch",
+    "build": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pipe2442/tictactoe_javascript.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pipe2442/tictactoe_javascript/issues"
+  },
+  "homepage": "https://github.com/pipe2442/tictactoe_javascript#readme",
+  "devDependencies": {
+    "jest": "^27.0.6",
+    "webpack": "^5.41.1",
+    "webpack-cli": "^4.7.2"
+  }
+}

@@ -5,6 +5,10 @@ function Player(name, marker) {
   this.marker = marker;
 }
 
+const sum = (a , b) => {
+  return a + b;
+}
+
 reload = () => {
   document.getElementById('name1').value = '';
   document.getElementById('name2').value = '';
@@ -19,6 +23,10 @@ validateForm = () => {
     startGame.preventDefault();
   }
 };
+
+const hiddeTable = () => {
+  document.getElementById('game_table').style.visibility = 'hidden';
+}
 
 startGame = () => {
   validateForm();
@@ -61,7 +69,7 @@ startGame = () => {
       } else {
         document.getElementById('win').innerHTML = `<h1>${player1.name.value} wins</h1>`;
       }
-      document.getElementById('game_table').style.visibility = 'hidden';
+      hiddeTable();
       document.getElementById('win').style.margin = '-30rem 0 0 0';
     }
   };
@@ -86,7 +94,7 @@ startGame = () => {
     turnNumber += 1;
     if (turnNumber > 8) {
       document.getElementById('win').innerHTML = '<h1>It\'s a tie!!!</h1>';
-      document.getElementById('game_table').style.visibility = 'hidden';
+      hiddeTable();
       document.getElementById('win').style.margin = '-30rem 0 0 0';
     }
   };
@@ -97,3 +105,6 @@ startGame = () => {
   }
   document.getElementById('win').innerHTML = `<h1>It's ${player2.name.value} turn</h1>`;
 };
+
+
+module.exports = sum;
