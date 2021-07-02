@@ -20,6 +20,10 @@ validateForm = () => {
   }
 };
 
+const hiddeTable = () => {
+  document.getElementById('game_table').style.visibility = 'hidden';
+};
+
 startGame = () => {
   validateForm();
   document.getElementById('name1').style.visibility = 'hidden';
@@ -61,7 +65,7 @@ startGame = () => {
       } else {
         document.getElementById('win').innerHTML = `<h1>${player1.name.value} wins</h1>`;
       }
-      document.getElementById('game_table').style.visibility = 'hidden';
+      hiddeTable();
       document.getElementById('win').style.margin = '-30rem 0 0 0';
     }
   };
@@ -86,7 +90,7 @@ startGame = () => {
     turnNumber += 1;
     if (turnNumber > 8) {
       document.getElementById('win').innerHTML = '<h1>It\'s a tie!!!</h1>';
-      document.getElementById('game_table').style.visibility = 'hidden';
+      hiddeTable();
       document.getElementById('win').style.margin = '-30rem 0 0 0';
     }
   };
@@ -96,4 +100,8 @@ startGame = () => {
     cells[i].addEventListener('click', marker);
   }
   document.getElementById('win').innerHTML = `<h1>It's ${player2.name.value} turn</h1>`;
+};
+
+module.exports = {
+  Player, startGame, reload, validateForm, hiddeTable,
 };

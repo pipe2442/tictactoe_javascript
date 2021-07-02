@@ -6,6 +6,10 @@ table {
   border-collapse: collapse;
 }
 
+.game_table {
+  border-collapse: unset;
+}
+
 td {
   font-family: 'Reggae One', cursive;
   font-size: 3rem;
