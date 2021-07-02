@@ -18,22 +18,32 @@ This project has been developed to accomplish basic javascript module at Microve
 - [Html](https://html.com/).
 - [CSS](https://www.w3.org/Style/CSS/Overview.en.html). 
 - [Git](https://www.w3.org/Style/CSS/Overview.en.html).
+- [Jest](https://jestjs.io/).
+- [Webpack](https://webpack.js.org/).
 
 ## Live Demo
 
 - [Hosted githack](https://rawcdn.githack.com/pipe2442/tictactoe_javascript/f52a4830b8b5f638b47fe8881137a6dd344f0ba4/index.html)
 
+
 ## Getting Started
 
-**Install Git on Your Own Machine.**
-
-### Usage
-
-- Create new folder.
-- Open your terminal.
-- Run ``` git clone https://github.com/pipe2442/tictactoe_javascript.git ```.
-- Enter root folder with command ``` cd tictactoe_javascript ```.
-- Launch the application from index.html.
+1. Open your terminal.
+2. Navigate to the desired location to download the contents of this repository.
+3. Copy and paste the following code into your terminal :
+   ```bash
+   $ git clone https://github.com/pipe2442/tictactoe_javascript.git
+   ```
+4. Run `cd tictactoe_javascript`
+5. Install your dependencies 
+    ```bash
+    $ npm install
+    $ npm install --save-dev jest
+    ```
+6. run
+    ```bash
+    $ npm run test
+    ``` 
 
 # Project Screenshot
 ![screenshot](https://github.com/pipe2442/tictactoe_javascript/blob/feature_tictactoe/assets/images/tictactoescreen.PNG)
